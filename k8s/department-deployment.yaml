@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: department
-          image: vmware/department:1.1
+          image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/department:4
           ports:
             - containerPort: 8080
           resources:
