@@ -61,6 +61,10 @@ spec:
               mountPath: /etc/secretspot
 #            - name: config
 #              mountPath: /etc/appconfig  
+       volumes:
+        - name: mongodb
+          secret:
+            secretName: mongodb
       serviceAccountName: api-service-account
 ---
 apiVersion: v1
