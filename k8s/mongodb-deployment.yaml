@@ -35,6 +35,13 @@ spec:
             secretKeyRef:
               name: mongodb
               key: database-password
+        volumeMounts:
+          - name: mongo-volume
+            mountPath: /data/db
+      volumes: 
+      - name: mongo-volume
+        persistentVolumeClaim:
+          claimName: mongo-volume-claim
         resources:
           requests:
             cpu: "0.2"
