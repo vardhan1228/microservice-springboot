@@ -56,13 +56,13 @@ spec:
           timeoutSeconds: 2
           periodSeconds: 20
           failureThreshold: 5
-        volumeMounts:
-            - name: mongodb
-              mountPath: /etc/secretspot
-      volumes:
-        - name: mongodb
-          secret:
-            secretName: mongodb
+         volumeMounts:
+          - name: mongo-volume
+            mountPath: /data/db
+      volumes: 
+      - name: mongo-volume
+        persistentVolumeClaim:
+          claimName: mongo-volume-claim
       serviceAccountName: api-service-account
 ---
 apiVersion: v1
