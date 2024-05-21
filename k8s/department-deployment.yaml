@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: department
-          image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/department:6
+          image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/department:7
           ports:
             - containerPort: 8080
           # resources:
