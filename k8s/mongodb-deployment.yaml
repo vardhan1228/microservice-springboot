@@ -1,28 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: mongodb
-spec: 
+  labels:
+    app: mongodb
+spec:
   replicas: 1
   selector:
     matchLabels:
       app: mongodb
   template:
     metadata:
-      labels: 
+      labels:
         app: mongodb
-    spec: 
+    spec:
       containers:
-      - name: mon
+      - name: mongodb
         image: mongo:4.2.3
-        command:
-            - "numactl"
-            - "--interleave=all"
-            - "mongod"
-            - "--wiredTigerCacheSizeGB"
-            - "0.1"
-            - "--bind_ip"
-            - "0.0.0.0"
         ports:
         - containerPort: 27017
         env:
@@ -41,13 +35,33 @@ spec:
             secretKeyRef:
               name: mongodb
               key: database-password
+        resources:
+          requests:
+            cpu: "0.2"
+            memory: 300Mi
+          limits:
+            cpu: "1.0"
+            memory: 300Mi
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 50
+          timeoutSeconds: 2
+          periodSeconds: 20
+          failureThreshold: 5
+        livenessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 50
+          timeoutSeconds: 2
+          periodSeconds: 20
+          failureThreshold: 5
         volumeMounts:
-          - name: mongo-volume
-            mountPath: /data/db
-      volumes: 
-      - name: mongo-volume
-        persistentVolumeClaim:
-          claimName: mongo-volume-claim
+            - name: mongodb
+              mountPath: /etc/secretspot
+#            - name: config
+#              mountPath: /etc/appconfig  
+      serviceAccountName: api-service-account
 ---
 apiVersion: v1
 kind: Service
