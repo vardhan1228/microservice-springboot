@@ -42,18 +42,18 @@ spec:
         #   timeoutSeconds: 2
         #   periodSeconds: 20
         #   failureThreshold: 5
-        volumeMounts:
-            - name: mongodb
-              mountPath: /etc/secretspot
-#            - name: config
-#              mountPath: /etc/appconfig
-      volumes:
-        - name: mongodb
-          secret:
-            secretName: gateway
-        - name: config
-          configMap:
-           name: gateway
+#         volumeMounts:
+#             - name: mongodb
+#               mountPath: /etc/secretspot
+# #            - name: config
+# #              mountPath: /etc/appconfig
+#       volumes:
+#         - name: mongodb
+#           secret:
+#             secretName: gateway
+#         - name: config
+#           configMap:
+#            name: gateway
       # serviceAccountName: api-service-account
 ---
 apiVersion: v1
