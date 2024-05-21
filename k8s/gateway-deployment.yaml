@@ -45,8 +45,8 @@ spec:
 #         volumeMounts:
 #             - name: mongodb
 #               mountPath: /etc/secretspot
-# #            - name: config
-# #              mountPath: /etc/appconfig
+           # - name: config
+           #   mountPath: /etc/appconfig
 #       volumes:
 #         - name: mongodb
 #           secret:
