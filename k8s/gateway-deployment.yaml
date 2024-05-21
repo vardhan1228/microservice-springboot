@@ -51,6 +51,9 @@ spec:
         - name: mongodb
           secret:
             secretName: gateway
+          - name: config
+          configMap:
+           name: gateway
       # serviceAccountName: api-service-account
 ---
 apiVersion: v1
