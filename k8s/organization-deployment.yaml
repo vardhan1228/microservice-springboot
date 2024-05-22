@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: organization
-        image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/organization:1
+        image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/organization:2
         ports:
           - containerPort: 8080
         # resources:
