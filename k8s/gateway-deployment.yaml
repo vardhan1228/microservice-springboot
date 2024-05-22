@@ -42,15 +42,15 @@ spec:
         #   timeoutSeconds: 2
         #   periodSeconds: 20
         #   failureThreshold: 5
-#         volumeMounts:
-#             - name: mongodb
-#               mountPath: /etc/secretspot
+        volumeMounts:
+            - name: mongodb
+              mountPath: /etc/secretspot
            # - name: config
            #   mountPath: /etc/appconfig
-#       volumes:
-#         - name: mongodb
-#           secret:
-#             secretName: gateway
+      volumes:
+        - name: mongodb
+          secret:
+            secretName: gateway
 #         - name: config
 #           configMap:
 #            name: gateway
@@ -69,4 +69,4 @@ spec:
     targetPort: 8080
   selector:
     app: gateway
-  type: LoadBalancer
+  type: NodePort
