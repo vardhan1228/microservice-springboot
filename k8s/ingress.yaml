@@ -12,13 +12,13 @@ spec:
   - host: vardhan.live
     http:
       paths:
-        - path: /api
-          pathType: Prefix
-          backend:
-            service:
-              name: api
-              port:
-                number: 3500
+        # - path: /api
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: api
+        #       port:
+        #         number: 3500
         - path: /employee
           backend:
             service:
