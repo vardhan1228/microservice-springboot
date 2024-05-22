@@ -65,7 +65,7 @@ metadata:
 spec:
   ports:
     - port: 8080
-       protocol: TCP
+      protocol: TCP
   selector:
     app: employee
   type: NodePort
