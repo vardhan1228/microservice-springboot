@@ -64,8 +64,8 @@ metadata:
     app: employee
 spec:
   ports:
-    - port: 8080
-      protocol: TCP
-    type: ClusterIP
+  - port: 8080
+    protocol: TCP
+  type: ClusterIP
   selector:
     role: employee
