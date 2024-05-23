@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/employee:9
+          image: 483216680875.dkr.ecr.us-east-2.amazonaws.com/employee:10
           ports:
             - containerPort: 8080
           # resources:
